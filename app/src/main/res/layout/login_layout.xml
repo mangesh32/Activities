@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_centerInParent="true"
+    android:background="#90000000"
+    android:padding="25dp"
+    android:id="@+id/login_frame">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/lock"
+        android:id="@+id/lock"
+        />
+
+    <EditText
+        android:layout_below="@id/lock"
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/email_place_holder"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="#3cafde"
+        android:textColorHint="#80ffffff" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:hint="@string/password_place_holder"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#3cafde"
+        android:textColorHint="#80ffffff" />
+
+    <ImageButton
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/password"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:src="@drawable/ic_loginbtn_24dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#80ffffff"
+        android:text="Not Registered??"
+        android:id="@+id/notreg_Btn"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Activities</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="userid_place_holder">Choose UserID</string>
+    <string name="name_place_holder">Your Name</string>
+    <string name="email_place_holder">Email ID</string>
+    <string name="password_place_holder">Password</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+    android:layout_width="match_parent"
+    android:background="@drawable/sea_back"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!--   Login Layout -->
+
+    <include layout="@layout/login_layout" />
+
+    <!--   Registration Layout -->
+
+    <include layout="@layout/registration_layout" />
+
+
+</RelativeLayout>

@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mg.activities">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" android:requiredFeature="App Communcations" />
+    <uses-permission android:name="android.permission.CAMERA" android:requiredFeature="Required or QR Reader" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:requiredFeature="Required to open contents"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:requiredFeature="Required to download contents" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".PostLogin"></activity>
+        <activity android:name=".PostLogin" />
+        <activity android:name=".MapsTask" />
+        <activity android:name=".SQLiteTask" />
+        <activity android:name=".QRTask" />
+        <activity android:name=".DownloadTask"></activity>
     </application>
 
 </manifest>

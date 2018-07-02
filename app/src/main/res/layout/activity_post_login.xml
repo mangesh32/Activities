@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostLogin">
+    tools:context=".PostLogin"
+    android:background="@drawable/sea_back">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:padding="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#90000000">
+
+
+        <ImageView
+                android:id="@+id/sqlite_iv"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:src="@drawable/sqlite4"
+                android:contentDescription="@string/sqlite_hint"
+                android:background="#00ffffff"
+            />
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/maps_iv"
+            android:layout_height="70dp"
+            android:layout_width="70dp"
+            android:src="@drawable/maps"
+            android:background="#00ffffff"
+            />
+        <ImageView
+            android:id="@+id/qrreader_iv"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_height="70dp"
+            android:layout_width="70dp"
+            android:src="@drawable/qr_reader2"
+            android:background="#00ffffff"
+            />
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/download_iv"
+            android:layout_height="70dp"
+            android:layout_width="70dp"
+            android:src="@drawable/download"
+            android:background="#00ffffff"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

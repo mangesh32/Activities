@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/sea_back"
+    android:layout_height="match_parent"
+    tools:context=".DownloadTask">
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/url_editText"
+        android:background="#90000000"
+        android:layout_centerVertical="true"
+        android:textColor="#3acdfe"
+        android:textAlignment="center"
+        android:textColorHint="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/url_hint"
+        />
+    <ImageView
+        android:id="@+id/url_downloadBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/download"
+        android:layout_below="@id/url_editText"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

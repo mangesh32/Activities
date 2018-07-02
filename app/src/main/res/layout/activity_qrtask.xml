@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/sea_back"
+    android:layout_height="match_parent"
+    tools:context=".QRTask">
+
+    <RelativeLayout
+        android:background="#90000000"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="400dp">
+
+
+
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/cameraview"/>
+
+        <TextView android:text="Not Yet Detected !!"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/cameraview"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textColor="#3cafde"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/txtview"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

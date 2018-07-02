@@ -8,4 +8,6 @@
     <string name="name_place_holder">Your Name</string>
     <string name="email_place_holder">Email ID</string>
     <string name="password_place_holder">Password</string>
+    <string name="sqlite_hint">SQLiteDB Operations</string>
+    <string name="url_hint">Enter File URL</string>
 </resources>

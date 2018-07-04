@@ -1,5 +1,6 @@
 package mg.activities;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,70 +32,71 @@ public class QRTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrtask);
-        txtView = findViewById(R.id.txtview);
+        if (ActivityCompat.checkSelfPermission(QRTask.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, 0);
+            recreate();
+        } else {
+            setContentView(R.layout.activity_qrtask);
+            txtView = findViewById(R.id.txtview);
 
-        final SurfaceView cameraView = findViewById(R.id.cameraview);
+            final SurfaceView cameraView = findViewById(R.id.cameraview);
 
-        BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(QRTask.this)
-                .setBarcodeFormats(Barcode.QR_CODE).build();
+            BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(QRTask.this)
+                    .setBarcodeFormats(Barcode.QR_CODE).build();
 
-        final CameraSource cameraSource = new CameraSource.Builder(QRTask.this, barcodeDetector)
-                .setRequestedPreviewSize(300, 450)
-                .build();
+            final CameraSource cameraSource = new CameraSource.Builder(QRTask.this, barcodeDetector)
+                    .setRequestedPreviewSize(300, 450)
+                    .build();
 
-        cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
-            @Override
-            public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                if (ActivityCompat.checkSelfPermission(QRTask.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                try {
-                    cameraSource.start(cameraView.getHolder());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(QRTask.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-                cameraSource.stop();
-            }
-        });
-
-        barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
-            @Override
-            public void release() {
-
-            }
-
-            @Override
-            public void receiveDetections(Detector.Detections<Barcode> detections) {
-                final SparseArray<Barcode> barcodes=detections.getDetectedItems();
-                if(barcodes.size()!=0){
-                    txtView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            txtView.setText(barcodes.valueAt(0).displayValue);
+            cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
+                @Override
+                public void surfaceCreated(SurfaceHolder surfaceHolder) {
+                    if (ActivityCompat.checkSelfPermission(QRTask.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, 0);
+                        recreate();
+                    } else {
+                        try {
+                            cameraSource.start(cameraView.getHolder());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(QRTask.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    });
+                    }
+
                 }
-            }
-        });
+
+                @Override
+                public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+                    cameraSource.stop();
+                }
+            });
+
+            barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
+                @Override
+                public void release() {
+
+                }
+
+                @Override
+                public void receiveDetections(Detector.Detections<Barcode> detections) {
+                    final SparseArray<Barcode> barcodes = detections.getDetectedItems();
+                    if (barcodes.size() != 0) {
+                        txtView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                txtView.setText(barcodes.valueAt(0).displayValue);
+                            }
+                        });
+                    }
+                }
+            });
 
 
+        }
     }
 }

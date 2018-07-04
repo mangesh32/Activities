@@ -10,4 +10,5 @@
     <string name="password_place_holder">Password</string>
     <string name="sqlite_hint">SQLiteDB Operations</string>
     <string name="url_hint">Enter File URL</string>
+    <string name="title_activity_maps_task">Map</string>
 </resources>

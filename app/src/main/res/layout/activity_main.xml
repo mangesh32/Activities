@@ -17,5 +17,8 @@
 
     <include layout="@layout/registration_layout" />
 
+    <!-- Loader -->
+
+    <include layout="@layout/loader"/>
 
 </RelativeLayout>
